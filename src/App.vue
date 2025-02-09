@@ -27,7 +27,7 @@ const startCountdown = () => {
   countdownInterval = setInterval(() => {
     timeLeft.value--;
 
-    if (time <= 0) {
+    if (timeLeft.value <= 0) {
             clearInterval(countdownInterval);
             timeLeft.value = 0;
             alert("Time's up! Let's Go!");
@@ -36,6 +36,9 @@ const startCountdown = () => {
   }, 1000);
 };
 
+onUnmounted(() => {
+  clearInterval(countdownInterval);
+});
 
 </script>
 
